@@ -1,0 +1,28 @@
+name: Tests
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  standard_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: sudo apt update &&
+             sudo apt install -y
+                 gfortran
+                 make
+                 uuid-dev
+
+      - name: System information
+        run: |
+          cat /etc/*release
+          gfortran --version
+      - uses: actions/checkout@v2
+
+      - name: Build fuuid4
+        run: |
+          cmake . -B build
+          cmake --build build -j2 --target check
