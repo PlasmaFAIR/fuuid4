@@ -134,11 +134,11 @@ contains
     integer(int64), parameter :: month = 31*day
     integer(int64), parameter :: year = 365_int64*day
 
-    integer, parameter :: un = 6544
+    integer :: un
     integer :: istat
 
     ! First try if the OS provides a random number generator
-    open(unit=un, file="/dev/urandom", access="stream", &
+    open(newunit=un, file="/dev/urandom", access="stream", &
          form="unformatted", action="read", status="old", iostat=istat)
     if (istat == 0) then
       read(un) seed
