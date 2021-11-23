@@ -1,3 +1,6 @@
+!> SPDX-License-Identifier: BSD-3-Clause
+!> author: Peter Hill
+!> ---
 !> Create a random (version 4) Universally Unique Identifier (UUID)
 !>
 !> A UUID looks like "4042E716-2556-4715-90F0-C6518463B4E5" and is a random
